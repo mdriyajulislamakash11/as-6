@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paddy Shope</title>
+    <!-- link with daysiUL CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- font awesome link setup -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- link with styles file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- this is header section start here -->
+    <header class="w-11/12 md:w-10/12 mx-auto font-lato mt-8 mb-24">
+        <!-- navbar -->
+        <nav class="navbar bg-base-100 p-0 mt-3 md:mt-6">
+            <div class="navbar-start">
+
+                <!-- left -->
+                <div class="">
+                    <a href="#" class="flex justify-center items-center gap-4">
+                        <img class="w-full h-full" src="./images/logo.webp" alt="">
+                        <span class="text-3xl font-black">Peddy</span>
+                    </a>
+                </div>
+            </div>
+            <div class="navbar-center hidden lg:flex">
+                <ul class="menu menu-horizontal px-1 space-x-5 text-lg font-medium ">
+                    <li><a>Home</a></li>
+                    <li><a>Shop</a></li>
+                    <li><a>Contact</a></li>
+                </ul>
+            </div>
+            <!-- right -->
+            <div class="navbar-end border">
+                <a class="btn w-14 h-14 rounded-full">
+                    <img src="https://img.icons8.com/?size=100&id=82751&format=png&color=000000" alt="">
+                </a>
+            </div>
+            <!-- mobile dropdown -->
+            <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h8m-8 6h16" />
+                    </svg>
+                </div>
+                <ul tabindex="0"
+                    class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-32 p-2 shadow right-0 gap-3">
+                    <li><a>Home</a></li>
+                    <li><a>Shop</a></li>
+                    <li><a>Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- hero section -->
+        <div class="mt-14 md:w-8/12 mx-auto">
+            <!-- text content -->
+            <div class="text-center space-y-3 md:space-y-6">
+                <h3 class="text-lg md:text-xl text-gray-600 font-semibold">Bringing Families Together ❤‍🔥</h3>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl text-gray-900 font-black">Your Path to Adoption
+                    <br>Starts Here
+                </h1>
+                <p class="text-gray-900 sm:text-lg">It is a long established fact that a reader will be distracted by
+                    the readable content of a page when
+                    looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+                <div>
+                    <button class="mt-2 md:mt-2 btn rounded-xl bg-teal-700 text-lg sm:text-xl font-bold text-white">View
+                        More</button>
+                </div>
+            </div>
+            <!-- image content -->
+            <div>
+                <img class="w-full border" src="./images/pet.webp" alt="">
+            </div>
+        </div>
+
+    </header>
+    <!-- this is header section end here -->
+
+    <!-- this is main section start here -->
+    <main>
+        <div class="w-10/12 mx-auto text-center lato">
+            <h1 class="text-[40px] font-black ">Adopt Your Best Friend</h1>
+            <p class="">It is a long established fact that a reader will be distracted by the readable content of a <br>
+                page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+        </div>
+    </main>
+    <!-- this is main section end here -->
+
+    <!-- this is foooter section start here -->
+    <section class=" bg-[#131313]  py-[100px] mt-6 lato">
+        <footer class="footer bg-[#131313] text-neutral-content  w-10/12 mx-auto flex justify-between flex-col md:flex-row">
+        
+            <nav>
+                <div class="flex items-center gap-3 mb-6">
+                    <img src="./images/logo.webp" alt="">
+                    <h6 class="text-[32px] font-extrabold text-white">Peddy</h6>
+                </div>
+                <a class="link link-hover text-xl md:text-lg ">Location: av. Washington 165, NY CA 54003</a>
+                <a class="link link-hover text-xl md:text-lg ">Phone: +31 85 964 47 25</a>
+                <a class="link link-hover text-xl md:text-lg ">Email: info@yourdomain.com</a>
+                <a class="link link-hover text-xl md:text-lg ">Openings hours: 9.00 AM - 5.00 PM</a>
+                <a class="link link-hover text-xl md:text-lg ">Openings hours: 09.00 AM - 05.00 PM</a>
+            </nav>
+    
+            <nav>
+                <h6 class=" text-[18px] font-bold text-white inter">Useful Links</h6>
+                <a class="link link-hover text-xl md:text-lg text-gray-400"> Home</a>
+                <a class="link link-hover text-xl md:text-lg text-gray-400">About Us</a>
+                <a class="link link-hover text-xl md:text-lg text-gray-400">Animals</a>
+                <a class="link link-hover text-xl md:text-lg text-gray-400">Foundation</a>
+                <a class="link link-hover text-xl md:text-lg text-gray-400">Contact</a>
+            </nav>
+    
+            <nav>
+                <h6 class="text-[18px] font-bold text-white mb-6 inter">Drop a Message</h6>
+                <label class="input input-bordered flex items-center gap-2 bg-[#FFFFFF0D]">
+                    <input type="text" class="placeholder:text-gray-500" placeholder="Enter your email" />
+                  </label>
+                <button class="btn w-full bg-[#0E7A81] text-white text[20px] font-bold mt-4 border-none">Subscribe</button>
+            </nav>
+    
+        </footer>
+    </section>
+
+    <!-- this is foooter section end here -->
+
+    <!-- scrip file linkup -->
+    <script src="javascript/index.js"></script>
+</body>
+
+</html>
