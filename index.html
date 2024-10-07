@@ -114,17 +114,14 @@
             </div>
             <div class="md:flex   w-full">
                 <div id="card-container" class=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  md:w-[75%] w-full">
-
-            
                 </div>
 
-               <div class=" w-full md:w-[25%]">
-                <div id="like-container" class="grid grid-cols-2 flex-wrap">
-                    
+                <div class=" w-full md:w-[25%] py-7">
+                    <div id="like-container" class="grid grid-cols-2 flex-wrap">
+                    </div>
                 </div>
-               </div>
             </div>
-         
+
 
         </div>
 
@@ -133,6 +130,24 @@
 
     </main>
     <!-- this is main section end here -->
+
+    <!-- show modal -->
+    <!-- Open the modal using ID.showModal() method -->
+    <button class="btn hidden" onclick="customModal.showModal()">open modal</button>
+
+    <dialog id="customModal" class="modal">
+        <div class="modal-box">
+           <div id="modal-content" class="">
+            
+           </div>
+            <div class="modal-action ">
+                <form method="dialog" class="w-full">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button class="btn w-full">Close</button>
+                </form>
+            </div>
+        </div>
+    </dialog>
 
     <!-- this is foooter section start here -->
     <section class=" bg-[#131313]  py-[100px] mt-6 lato">
@@ -186,6 +201,11 @@
 </body>
 
 </html>
+
+
+
+
+
 
 
 
