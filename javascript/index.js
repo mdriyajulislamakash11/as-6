@@ -47,41 +47,62 @@ const loadImages = (picture) => {
     likepas.append(likeadd)
 };
 
-// show modal
+// show modal adopt 
+const showAdopt = (adopt) => {
+    console.log(adopt);
+
+    const adoptContainer = document.getElementById('modal-content-adopt');
+    adoptContainer.innerHTML = `
+    <img class=" mt-12 mb-6 mx-auto" src="https://img.icons8.com/?size=48&amp;id=63312&amp;format=png" alt="success-image">
+        <h3 class=" py-4 text-3xl lg:text-5xl font-bold">Congratulations!</h3>
+        <p class="py-4 text-xl font-bold">
+            Adoption Process is Starting For your Pet
+        </p>
+        <div id="count" class="text-7xl font-extrabold mb-12">3</div>
+    `;
+
+    const modal = document.getElementById('customModalAdopt');
+    modal.showModal();
+
+    let countdown = 2;
+    const interval = setInterval(() => {
+        document.getElementById('count').innerText = countdown;
+        countdown--;
+
+        
+        if (countdown < 0) {
+            clearInterval(interval);
+            modal.close();
+        }
+    }, 1000);
+};
+
+
+// const displaModalAdopt = (modalAdopt) => {
+//     console.log(modalAdopt);
+// };
+
+
+
+// show modal details
 const showModal = (detail) => {
     console.log(detail)
     fetch(`https://openapi.programming-hero.com/api/peddy/pet/${detail}`)
         .then(res => res.json())
         .then(data => displaModalCard(data.petData))
 
-}
-
-// {
-//     "status": true,
-//     "message": "successfully fetched pet data using id 1",
-//     "petData": {
-//       "petId": 1,
-//       "breed": "Golden Retriever",
-//       "category": "Dog",
-//       "date_of_birth": "2023-01-15",
-//       "price": 1200,
-//       "image": "https://i.ibb.co.com/p0w744T/pet-1.jpg",
-//       "gender": "Male",
-//       "pet_details": "This friendly male Golden Retriever is energetic and loyal, making him a perfect companion for families. Born on January 15, 2023, he enjoys playing outdoors and is especially great with children. Fully vaccinated, he's ready to join your family and bring endless joy. Priced at $1200, he offers love, loyalty, and a lively spirit for those seeking a playful yet gentle dog.",
-//       "vaccinated_status": "Fully",
-//       "pet_name": "Sunny"
-//     }
-//   }
+};
 
 // card details with modal
 const displaModalCard = (modal) => {
     console.log(modal);
 
     const detailContainer = document.getElementById('modal-content');
+    detailContainer.classList=""
     detailContainer.innerHTML = `
 
     <img src=${modal.image} 
-    class="w-full h-[270px] obcejt-cover"
+    class="w-full h-[270px] obcejt-cover rounded"
     alt="">
     <div>
         <h2 class="text-2xl font-bold py-4 inter"> ${modal.pet_name}</h2>
@@ -108,7 +129,7 @@ const displaModalCard = (modal) => {
 
 
     document.getElementById('customModal').showModal();
-}
+};
 
 const displayCards = (card) => {
     const cardContainer = document.getElementById('card-container')
@@ -156,7 +177,7 @@ const displayCards = (card) => {
 
                <div class="grid grid-cols-2 items-center mt-3">
                     <p onclick="loadImages('${cards.image}')" class="btn text-[18px] font-bold"> <i class="fa-regular fa-thumbs-up "></i></p>
-                    <button class="btn text-[#0E7A81] text-[18px] font-bold">Adopt</button>
+                    <button onclick="showAdopt('${cards.petId}')" class="btn text-[#0E7A81] text-[18px] font-bold">Adopt</button>
                     <button onclick="showModal('${cards.petId}')" class="btn text-[#0E7A81] text-[18px] font-bold col-span-2 mt-2">Details</button>
                 </div>
 

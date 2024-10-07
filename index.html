@@ -131,15 +131,35 @@
     </main>
     <!-- this is main section end here -->
 
+    <!-- adopt modal -->
+    <button class="btn hidden" onclick="customModalAdopt.showModal()">open modal</button>
+
+    <dialog id="customModalAdopt" class="modal">
+        <div class="modal-box text-center">
+            <div id="modal-content-adopt" class="">
+
+            </div>
+            <div class="modal-action ">
+                <form method="dialog" class="w-full">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <!-- <button class="btn w-full">Close</button> -->
+                </form>
+            </div>
+        </div>
+    </dialog>
+
+
+
+
     <!-- show modal -->
     <!-- Open the modal using ID.showModal() method -->
     <button class="btn hidden" onclick="customModal.showModal()">open modal</button>
 
     <dialog id="customModal" class="modal">
         <div class="modal-box">
-           <div id="modal-content" class="">
-            
-           </div>
+            <div id="modal-content" class="">
+
+            </div>
             <div class="modal-action ">
                 <form method="dialog" class="w-full">
                     <!-- if there is a button in form, it will close the modal -->
@@ -148,6 +168,10 @@
             </div>
         </div>
     </dialog>
+
+
+    <!-- Open the modal using ID.showModal() method -->
+  
 
     <!-- this is foooter section start here -->
     <section class=" bg-[#131313]  py-[100px] mt-6 lato">
@@ -201,11 +225,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
-

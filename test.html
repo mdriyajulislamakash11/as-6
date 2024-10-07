@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body cz-shortcut-listen="true">
+    <header class="w-11/12 mx-auto">
+      <div class="navbar bg-base-100">
+        <div class="navbar-start">
+          <h2 class="font-bold text-4xl flex">
+            <img src="./images/logo.webp" alt="">
+            <span class="ml-2">Peddy</span>
+          </h2>
+        </div>
+        <div class="navbar-center">
+          <ul class="hidden md:flex text-lg font-semibold gap-5">
+            <li>Home</li>
+            <li>Shop</li>
+            <li>Contact</li>
+          </ul>
+        </div>
+        <div class="navbar-end">
+          <span class="hidden md:flex bg-white rounded-full p-4 border">
+            <i class="ri-user-3-line"></i>
+          </span>
+          <div class="md:hidden dropdown">
+            <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path>
+              </svg>
+            </div>
+            <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow right-0">
+              <li><a>Home</a></li>
+              <li><a>Shop</a></li>
+              <li><a>Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <section id="hero-section" class="mt-6 md:mt-16">
+        <div class="text-center">
+          <h4 class="font-semibold text-xl py-2">
+            Bringing Families Together ❤️‍🔥
+          </h4>
+          <h1 class="text-5xl py-6 md:text-7xl font-bold md:py-3">
+            Tour Path to Adoption <br>
+            Starts Here
+          </h1>
+          <p class="font-semibold mt-6 mb-4">
+            It is a long established fact that a reader will be distracted by
+            the readable content of a page when looking at its layout. The point
+            of using Lorem Ipsum is that it has a.
+          </p>
+          <button class="btn bg-emerald-700 text-white font-bold hover:text-emerald-700 hover:bg-white">
+            <a href="#main-section"> View More</a>
+          </button>
+        </div>
+        <div class="mt-8">
+          <img class="object-center w-10/12 mx-auto" src="./images/pet.webp" alt="">
+        </div>
+      </section>
+    </header>
+
+    <main id="main-section" class="w-11/12 mx-auto h-fit]">
+      <section class="text-center h-auto">
+        <div>
+          <h2 class="text-4xl font-bold">Adop Your Best Friend</h2>
+          <p class="font-semibold my-6 text-gray-500">
+            It is a long established fact that a reader will be distracted by
+            the readable content of a page when looking at its layout. The point
+            of using Lorem Ipsum is that it has a.
+          </p>
+        </div>
+
+        <!-- =================category section 4 buttons============================= -->
+        <div id="categoryCon" class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 lg:gap-32"><div class="border mb-4 p-4 rounded-lg hover:border-emerald-700 hover:bg-emerald-100">
+        <div onclick="categoryFetch('Cat')" class="flex justify-center items-center ">
+          <img class="w-8 h-8" src="https://i.ibb.co.com/N7dM2K1/cat.png" alt="">
+          <span class="ml-4 font-bold">Cat</span>
+        </div>
+      </div><div class="border mb-4 p-4 rounded-lg hover:border-emerald-700 hover:bg-emerald-100">
+        <div onclick="categoryFetch('Dog')" class="flex justify-center items-center ">
+          <img class="w-8 h-8" src="https://i.ibb.co.com/c8Yp1y7/dog.png" alt="">
+          <span class="ml-4 font-bold">Dog</span>
+        </div>
+      </div><div class="border mb-4 p-4 rounded-lg hover:border-emerald-700 hover:bg-emerald-100">
+        <div onclick="categoryFetch('Rabbit')" class="flex justify-center items-center ">
+          <img class="w-8 h-8" src="https://i.ibb.co.com/3hftmLC/rabbit.png" alt="">
+          <span class="ml-4 font-bold">Rabbit</span>
+        </div>
+      </div><div class="border mb-4 p-4 rounded-lg hover:border-emerald-700 hover:bg-emerald-100">
+        <div onclick="categoryFetch('Bird')" class="flex justify-center items-center ">
+          <img class="w-8 h-8" src="https://i.ibb.co.com/6HHZwfq/bird.png" alt="">
+          <span class="ml-4 font-bold">Bird</span>
+        </div>
+      </div></div>
+        <!-- =================category section 4 buttons============================= -->
+
+        <!-- =============== adopt button clicked=============================== -->
+        <div class="adoptContainer">
+          <dialog id="mymodal" class="modal">
+            <div class="modal-box">
+              <img class="mx-auto" src="https://img.icons8.com/?size=48&amp;id=63312&amp;format=png" alt="success-image">
+              <h3 class="text-3xl lg:text-5xl font-bold">Congratulations!</h3>
+              <p class="py-4 text-xl font-bold">
+                Adoption Process is Starting For your Pet
+              </p>
+              <div id="count" class="text-5xl font-bold"></div>
+              <div class="modal-action">
+                <form method="dialog">
+                  <!-- if there is a button, it will close the modal -->
+                </form>
+              </div>
+            </div>
+          </dialog>
+        </div>
+        <!-- =============== adopt button clicked=============================== -->
+
+        <!-- ===================details for a card======================== -->
+        <div class="detailsContainer">
+          <dialog id="detailCard" class="modal">
+            <div class="modal-box w-11/12 max-w-5xl">
+              <div class="modal-content mx-auto rounded-lg"></div>
+              <div class="modal-action py-0 my-0 flex justify-center items-center">
+                <form method="dialog">
+                  <button class="btn w-[17rem] md:w-[25rem] lg:w-[32rem] text-2xl font-bold text-emerald-700 bg-emerald-100">
+                    Close
+                  </button>
+                </form>
+              </div>
+            </div>
+          </dialog>
+        </div>
+        <!-- =========================================== -->
+
+        <section>
+          <div class="flex justify-between items-center mt-10 mb-6">
+            <h4 class="font-bold md:text-xl">Best Deals For You</h4>
+            <button onclick="sorted()" class="btn bg-emerald-700 text-white font-bold hover:text-emerald-700 hover:bg-white">
+              Sort by Price
+            </button>
+          </div>
+
+          <div class="flex flex-col justify-between gap-6 lg:gap-12 md:flex-row">
+            <!-- ======================add todo image================= -->
+
+            <div class="md:w-[30%] h-fit border rounded-lg gap-4 p-2 lg:p-6 md:order-2">
+              <h2 class="col-span-2 font-bold text-2xl mb-4">
+                Add your favourite
+              </h2>
+
+              <div id="image-todo" class="grid grid-cols-2 lg:grid-cols-2 xl:gap-6 gap-2"></div>
+            </div>
+
+            <!-- ======================add todo image================= -->
+
+            <!-- ===============main card container================== -->
+            <div id="cardContainer" class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-12 border p-6 rounded-lg"><div class="card bg-base-100 border">
+          <figure class="p-4">
+            <img src="https://i.ibb.co.com/p0w744T/pet-1.jpg" alt="Pet Image" class="rounded-xl w-[340px] object-cover">
+          </figure>
+          <div class="items-center text-left p-4">
+            <h2 class="card-title text-2xl font-bold">Sunny</h2>
+            <div class="space-y-2 font-semibold">
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-gallery-view-2"></i></p>
+                <p>Breed: Golden Retriever</p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-store-line"></i></p>
+                <p>Birth: <span>2023-01-15</span></p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-creative-commons-by-line"></i></p>
+                <p>Gender: <span>Male</span></p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-money-dollar-box-line"></i></p>
+                <p>Price: <span>1200</span>$</p>
+              </div>
+              <div class="card-actions grid grid-cols-3 justify-between">
+
+                <button onclick="addTodo(1)" class="btns-like w-12 btn text-gray-600 text-xl font-bold hover:bg-emerald-700 hover:text-white">
+                  <i class="ri-thumb-up-line"></i>
+                </button>
+
+                <button id="adopt-1" onclick="adoptFunc(1)" class="btn text-emerald-700 text-xl font-bold hover:bg-emerald-700 hover:text-white">Adopt</button>
+
+                <button onclick="showdetails(1)" class="btn text-emerald-700 text-xl font-bold hover:bg-emerald-700 hover:text-white">Details</button>
+
+              </div>
+            </div>
+          </div>
+        </div><div class="card bg-base-100 border">
+          <figure class="p-4">
+            <img src="https://i.ibb.co.com/3Wzz41D/pet-2.jpg" alt="Pet Image" class="rounded-xl w-[340px] object-cover">
+          </figure>
+          <div class="items-center text-left p-4">
+            <h2 class="card-title text-2xl font-bold">Mia</h2>
+            <div class="space-y-2 font-semibold">
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-gallery-view-2"></i></p>
+                <p>Breed: Siamese</p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-store-line"></i></p>
+                <p>Birth: <span>2022-09-05</span></p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-creative-commons-by-line"></i></p>
+                <p>Gender: <span>Female</span></p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-money-dollar-box-line"></i></p>
+                <p>Price: <span>800</span>$</p>
+              </div>
+              <div class="card-actions grid grid-cols-3 justify-between">
+
+                <button onclick="addTodo(2)" class="btns-like w-12 btn text-gray-600 text-xl font-bold hover:bg-emerald-700 hover:text-white">
+                  <i class="ri-thumb-up-line"></i>
+                </button>
+
+                <button id="adopt-2" onclick="adoptFunc(2)" class="btn text-emerald-700 text-xl font-bold hover:bg-emerald-700 hover:text-white">Adopt</button>
+
+                <button onclick="showdetails(2)" class="btn text-emerald-700 text-xl font-bold hover:bg-emerald-700 hover:text-white">Details</button>
+
+              </div>
+            </div>
+          </div>
+        </div><div class="card bg-base-100 border">
+          <figure class="p-4">
+            <img src="https://i.ibb.co.com/s3PXSwD/pet-3.jpg" alt="Pet Image" class="rounded-xl w-[340px] object-cover">
+          </figure>
+          <div class="items-center text-left p-4">
+            <h2 class="card-title text-2xl font-bold">Coco</h2>
+            <div class="space-y-2 font-semibold">
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-gallery-view-2"></i></p>
+                <p>Breed: Not available</p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-store-line"></i></p>
+                <p>Birth: <span>2022-04-20</span></p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-creative-commons-by-line"></i></p>
+                <p>Gender: <span>Male</span></p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-money-dollar-box-line"></i></p>
+                <p>Price: <span>1500</span>$</p>
+              </div>
+              <div class="card-actions grid grid-cols-3 justify-between">
+
+                <button onclick="addTodo(3)" class="btns-like w-12 btn text-gray-600 text-xl font-bold hover:bg-emerald-700 hover:text-white">
+                  <i class="ri-thumb-up-line"></i>
+                </button>
+
+                <button id="adopt-3" onclick="adoptFunc(3)" class="btn text-emerald-700 text-xl font-bold hover:bg-emerald-700 hover:text-white">Adopt</button>
+
+                <button onclick="showdetails(3)" class="btn text-emerald-700 text-xl font-bold hover:bg-emerald-700 hover:text-white">Details</button>
+
+              </div>
+            </div>
+          </div>
+        </div><div class="card bg-base-100 border">
+          <figure class="p-4">
+            <img src="https://i.ibb.co.com/4g3Jrjf/pet-4.jpg" alt="Pet Image" class="rounded-xl w-[340px] object-cover">
+          </figure>
+          <div class="items-center text-left p-4">
+            <h2 class="card-title text-2xl font-bold">Nibbles</h2>
+            <div class="space-y-2 font-semibold">
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-gallery-view-2"></i></p>
+                <p>Breed: Holland Lop</p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-store-line"></i></p>
+                <p>Birth: <span>2023-06-30</span></p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-creative-commons-by-line"></i></p>
+                <p>Gender: <span>Female</span></p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-money-dollar-box-line"></i></p>
+                <p>Price: <span>200</span>$</p>
+              </div>
+              <div class="card-actions grid grid-cols-3 justify-between">
+
+                <button onclick="addTodo(4)" class="btns-like w-12 btn text-gray-600 text-xl font-bold hover:bg-emerald-700 hover:text-white">
+                  <i class="ri-thumb-up-line"></i>
+                </button>
+
+                <button id="adopt-4" onclick="adoptFunc(4)" class="btn text-emerald-700 text-xl font-bold hover:bg-emerald-700 hover:text-white">Adopt</button>
+
+                <button onclick="showdetails(4)" class="btn text-emerald-700 text-xl font-bold hover:bg-emerald-700 hover:text-white">Details</button>
+
+              </div>
+            </div>
+          </div>
+        </div><div class="card bg-base-100 border">
+          <figure class="p-4">
+            <img src="https://i.ibb.co.com/BwnvDMY/pet-5.jpg" alt="Pet Image" class="rounded-xl w-[340px] object-cover">
+          </figure>
+          <div class="items-center text-left p-4">
+            <h2 class="card-title text-2xl font-bold">Bella</h2>
+            <div class="space-y-2 font-semibold">
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-gallery-view-2"></i></p>
+                <p>Breed: Beagle</p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-store-line"></i></p>
+                <p>Birth: <span>Not available</span></p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-creative-commons-by-line"></i></p>
+                <p>Gender: <span>Female</span></p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-money-dollar-box-line"></i></p>
+                <p>Price: <span>900</span>$</p>
+              </div>
+              <div class="card-actions grid grid-cols-3 justify-between">
+
+                <button onclick="addTodo(5)" class="btns-like w-12 btn text-gray-600 text-xl font-bold hover:bg-emerald-700 hover:text-white">
+                  <i class="ri-thumb-up-line"></i>
+                </button>
+
+                <button id="adopt-5" onclick="adoptFunc(5)" class="btn text-emerald-700 text-xl font-bold hover:bg-emerald-700 hover:text-white">Adopt</button>
+
+                <button onclick="showdetails(5)" class="btn text-emerald-700 text-xl font-bold hover:bg-emerald-700 hover:text-white">Details</button>
+
+              </div>
+            </div>
+          </div>
+        </div><div class="card bg-base-100 border">
+          <figure class="p-4">
+            <img src="https://i.ibb.co.com/PFbWMGk/pet-6.jpg" alt="Pet Image" class="rounded-xl w-[340px] object-cover">
+          </figure>
+          <div class="items-center text-left p-4">
+            <h2 class="card-title text-2xl font-bold">Leo</h2>
+            <div class="space-y-2 font-semibold">
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-gallery-view-2"></i></p>
+                <p>Breed: Bengal</p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-store-line"></i></p>
+                <p>Birth: <span>Not available</span></p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-creative-commons-by-line"></i></p>
+                <p>Gender: <span>Male</span></p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-money-dollar-box-line"></i></p>
+                <p>Price: <span>950</span>$</p>
+              </div>
+              <div class="card-actions grid grid-cols-3 justify-between">
+
+                <button onclick="addTodo(6)" class="btns-like w-12 btn text-gray-600 text-xl font-bold hover:bg-emerald-700 hover:text-white">
+                  <i class="ri-thumb-up-line"></i>
+                </button>
+
+                <button id="adopt-6" onclick="adoptFunc(6)" class="btn text-emerald-700 text-xl font-bold hover:bg-emerald-700 hover:text-white">Adopt</button>
+
+                <button onclick="showdetails(6)" class="btn text-emerald-700 text-xl font-bold hover:bg-emerald-700 hover:text-white">Details</button>
+
+              </div>
+            </div>
+          </div>
+        </div><div class="card bg-base-100 border">
+          <figure class="p-4">
+            <img src="https://i.ibb.co.com/QXbXctF/pet-7.jpg" alt="Pet Image" class="rounded-xl w-[340px] object-cover">
+          </figure>
+          <div class="items-center text-left p-4">
+            <h2 class="card-title text-2xl font-bold">Max</h2>
+            <div class="space-y-2 font-semibold">
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-gallery-view-2"></i></p>
+                <p>Breed: Bengal</p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-store-line"></i></p>
+                <p>Birth: <span>2022-11-10</span></p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-creative-commons-by-line"></i></p>
+                <p>Gender: <span>Male</span></p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-money-dollar-box-line"></i></p>
+                <p>Price: <span>950</span>$</p>
+              </div>
+              <div class="card-actions grid grid-cols-3 justify-between">
+
+                <button onclick="addTodo(7)" class="btns-like w-12 btn text-gray-600 text-xl font-bold hover:bg-emerald-700 hover:text-white">
+                  <i class="ri-thumb-up-line"></i>
+                </button>
+
+                <button id="adopt-7" onclick="adoptFunc(7)" class="btn text-emerald-700 text-xl font-bold hover:bg-emerald-700 hover:text-white">Adopt</button>
+
+                <button onclick="showdetails(7)" class="btn text-emerald-700 text-xl font-bold hover:bg-emerald-700 hover:text-white">Details</button>
+
+              </div>
+            </div>
+          </div>
+        </div><div class="card bg-base-100 border">
+          <figure class="p-4">
+            <img src="https://i.ibb.co.com/MCDfNqN/pet-8.jpg" alt="Pet Image" class="rounded-xl w-[340px] object-cover">
+          </figure>
+          <div class="items-center text-left p-4">
+            <h2 class="card-title text-2xl font-bold">Luna</h2>
+            <div class="space-y-2 font-semibold">
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-gallery-view-2"></i></p>
+                <p>Breed: Beagle</p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-store-line"></i></p>
+                <p>Birth: <span>2023-03-22</span></p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-creative-commons-by-line"></i></p>
+                <p>Gender: <span>Not available</span></p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-money-dollar-box-line"></i></p>
+                <p>Price: <span>1200</span>$</p>
+              </div>
+              <div class="card-actions grid grid-cols-3 justify-between">
+
+                <button onclick="addTodo(8)" class="btns-like w-12 btn text-gray-600 text-xl font-bold hover:bg-emerald-700 hover:text-white">
+                  <i class="ri-thumb-up-line"></i>
+                </button>
+
+                <button id="adopt-8" onclick="adoptFunc(8)" class="btn text-emerald-700 text-xl font-bold hover:bg-emerald-700 hover:text-white">Adopt</button>
+
+                <button onclick="showdetails(8)" class="btn text-emerald-700 text-xl font-bold hover:bg-emerald-700 hover:text-white">Details</button>
+
+              </div>
+            </div>
+          </div>
+        </div><div class="card bg-base-100 border">
+          <figure class="p-4">
+            <img src="https://i.ibb.co.com/XyXBtb8/pet-9.jpg" alt="Pet Image" class="rounded-xl w-[340px] object-cover">
+          </figure>
+          <div class="items-center text-left p-4">
+            <h2 class="card-title text-2xl font-bold">Buddy</h2>
+            <div class="space-y-2 font-semibold">
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-gallery-view-2"></i></p>
+                <p>Breed: Beagle</p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-store-line"></i></p>
+                <p>Birth: <span>2023-03-22</span></p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-creative-commons-by-line"></i></p>
+                <p>Gender: <span>Male</span></p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-money-dollar-box-line"></i></p>
+                <p>Price: <span>Not available</span>$</p>
+              </div>
+              <div class="card-actions grid grid-cols-3 justify-between">
+
+                <button onclick="addTodo(9)" class="btns-like w-12 btn text-gray-600 text-xl font-bold hover:bg-emerald-700 hover:text-white">
+                  <i class="ri-thumb-up-line"></i>
+                </button>
+
+                <button id="adopt-9" onclick="adoptFunc(9)" class="btn text-emerald-700 text-xl font-bold hover:bg-emerald-700 hover:text-white">Adopt</button>
+
+                <button onclick="showdetails(9)" class="btn text-emerald-700 text-xl font-bold hover:bg-emerald-700 hover:text-white">Details</button>
+
+              </div>
+            </div>
+          </div>
+        </div><div class="card bg-base-100 border">
+          <figure class="p-4">
+            <img src="https://i.ibb.co.com/hg9XBJV/pet-10.jpg" alt="Pet Image" class="rounded-xl w-[340px] object-cover">
+          </figure>
+          <div class="items-center text-left p-4">
+            <h2 class="card-title text-2xl font-bold">Daisy</h2>
+            <div class="space-y-2 font-semibold">
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-gallery-view-2"></i></p>
+                <p>Breed: Labrador Retriever</p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-store-line"></i></p>
+                <p>Birth: <span>2023-05-15</span></p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-creative-commons-by-line"></i></p>
+                <p>Gender: <span>Female</span></p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-money-dollar-box-line"></i></p>
+                <p>Price: <span>1100</span>$</p>
+              </div>
+              <div class="card-actions grid grid-cols-3 justify-between">
+
+                <button onclick="addTodo(10)" class="btns-like w-12 btn text-gray-600 text-xl font-bold hover:bg-emerald-700 hover:text-white">
+                  <i class="ri-thumb-up-line"></i>
+                </button>
+
+                <button id="adopt-10" onclick="adoptFunc(10)" class="btn text-emerald-700 text-xl font-bold hover:bg-emerald-700 hover:text-white">Adopt</button>
+
+                <button onclick="showdetails(10)" class="btn text-emerald-700 text-xl font-bold hover:bg-emerald-700 hover:text-white">Details</button>
+
+              </div>
+            </div>
+          </div>
+        </div><div class="card bg-base-100 border">
+          <figure class="p-4">
+            <img src="https://i.ibb.co.com/47Sxf3X/pet-11.jpg" alt="Pet Image" class="rounded-xl w-[340px] object-cover">
+          </figure>
+          <div class="items-center text-left p-4">
+            <h2 class="card-title text-2xl font-bold">Ollie</h2>
+            <div class="space-y-2 font-semibold">
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-gallery-view-2"></i></p>
+                <p>Breed: French Bulldog</p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-store-line"></i></p>
+                <p>Birth: <span>2023-07-20</span></p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-creative-commons-by-line"></i></p>
+                <p>Gender: <span>Male</span></p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-money-dollar-box-line"></i></p>
+                <p>Price: <span>2500</span>$</p>
+              </div>
+              <div class="card-actions grid grid-cols-3 justify-between">
+
+                <button onclick="addTodo(11)" class="btns-like w-12 btn text-gray-600 text-xl font-bold hover:bg-emerald-700 hover:text-white">
+                  <i class="ri-thumb-up-line"></i>
+                </button>
+
+                <button id="adopt-11" onclick="adoptFunc(11)" class="btn text-emerald-700 text-xl font-bold hover:bg-emerald-700 hover:text-white">Adopt</button>
+
+                <button onclick="showdetails(11)" class="btn text-emerald-700 text-xl font-bold hover:bg-emerald-700 hover:text-white">Details</button>
+
+              </div>
+            </div>
+          </div>
+        </div><div class="card bg-base-100 border">
+          <figure class="p-4">
+            <img src="https://i.ibb.co.com/R9ZHvDD/pet-12.jpg" alt="Pet Image" class="rounded-xl w-[340px] object-cover">
+          </figure>
+          <div class="items-center text-left p-4">
+            <h2 class="card-title text-2xl font-bold">Chloe</h2>
+            <div class="space-y-2 font-semibold">
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-gallery-view-2"></i></p>
+                <p>Breed: Poodle</p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-store-line"></i></p>
+                <p>Birth: <span>2023-08-10</span></p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-creative-commons-by-line"></i></p>
+                <p>Gender: <span>Female</span></p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-money-dollar-box-line"></i></p>
+                <p>Price: <span>1500</span>$</p>
+              </div>
+              <div class="card-actions grid grid-cols-3 justify-between">
+
+                <button onclick="addTodo(12)" class="btns-like w-12 btn text-gray-600 text-xl font-bold hover:bg-emerald-700 hover:text-white">
+                  <i class="ri-thumb-up-line"></i>
+                </button>
+
+                <button id="adopt-12" onclick="adoptFunc(12)" class="btn text-emerald-700 text-xl font-bold hover:bg-emerald-700 hover:text-white">Adopt</button>
+
+                <button onclick="showdetails(12)" class="btn text-emerald-700 text-xl font-bold hover:bg-emerald-700 hover:text-white">Details</button>
+
+              </div>
+            </div>
+          </div>
+        </div><div class="card bg-base-100 border">
+          <figure class="p-4">
+            <img src="https://i.ibb.co.com/f4MRfWZ/pet-13.jpg" alt="Pet Image" class="rounded-xl w-[340px] object-cover">
+          </figure>
+          <div class="items-center text-left p-4">
+            <h2 class="card-title text-2xl font-bold">Pip</h2>
+            <div class="space-y-2 font-semibold">
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-gallery-view-2"></i></p>
+                <p>Breed: Netherland Dwarf</p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-store-line"></i></p>
+                <p>Birth: <span>2023-05-10</span></p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-creative-commons-by-line"></i></p>
+                <p>Gender: <span>Male</span></p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-money-dollar-box-line"></i></p>
+                <p>Price: <span>180</span>$</p>
+              </div>
+              <div class="card-actions grid grid-cols-3 justify-between">
+
+                <button onclick="addTodo(13)" class="btns-like w-12 btn text-gray-600 text-xl font-bold hover:bg-emerald-700 hover:text-white">
+                  <i class="ri-thumb-up-line"></i>
+                </button>
+
+                <button id="adopt-13" onclick="adoptFunc(13)" class="btn text-emerald-700 text-xl font-bold hover:bg-emerald-700 hover:text-white">Adopt</button>
+
+                <button onclick="showdetails(13)" class="btn text-emerald-700 text-xl font-bold hover:bg-emerald-700 hover:text-white">Details</button>
+
+              </div>
+            </div>
+          </div>
+        </div><div class="card bg-base-100 border">
+          <figure class="p-4">
+            <img src="https://i.ibb.co.com/MPJmYwc/pet-14.jpg" alt="Pet Image" class="rounded-xl w-[340px] object-cover">
+          </figure>
+          <div class="items-center text-left p-4">
+            <h2 class="card-title text-2xl font-bold">Fluffy</h2>
+            <div class="space-y-2 font-semibold">
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-gallery-view-2"></i></p>
+                <p>Breed: Mini Rex</p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-store-line"></i></p>
+                <p>Birth: <span>2023-06-01</span></p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-creative-commons-by-line"></i></p>
+                <p>Gender: <span>Female</span></p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-money-dollar-box-line"></i></p>
+                <p>Price: <span>220</span>$</p>
+              </div>
+              <div class="card-actions grid grid-cols-3 justify-between">
+
+                <button onclick="addTodo(14)" class="btns-like w-12 btn text-gray-600 text-xl font-bold hover:bg-emerald-700 hover:text-white">
+                  <i class="ri-thumb-up-line"></i>
+                </button>
+
+                <button id="adopt-14" onclick="adoptFunc(14)" class="btn text-emerald-700 text-xl font-bold hover:bg-emerald-700 hover:text-white">Adopt</button>
+
+                <button onclick="showdetails(14)" class="btn text-emerald-700 text-xl font-bold hover:bg-emerald-700 hover:text-white">Details</button>
+
+              </div>
+            </div>
+          </div>
+        </div><div class="card bg-base-100 border">
+          <figure class="p-4">
+            <img src="https://i.ibb.co.com/RQ6smFK/pet-15.jpg" alt="Pet Image" class="rounded-xl w-[340px] object-cover">
+          </figure>
+          <div class="items-center text-left p-4">
+            <h2 class="card-title text-2xl font-bold">Binky</h2>
+            <div class="space-y-2 font-semibold">
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-gallery-view-2"></i></p>
+                <p>Breed: Holland Lop</p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-store-line"></i></p>
+                <p>Birth: <span>2023-07-15</span></p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-creative-commons-by-line"></i></p>
+                <p>Gender: <span>Male</span></p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-money-dollar-box-line"></i></p>
+                <p>Price: <span>200</span>$</p>
+              </div>
+              <div class="card-actions grid grid-cols-3 justify-between">
+
+                <button onclick="addTodo(15)" class="btns-like w-12 btn text-gray-600 text-xl font-bold hover:bg-emerald-700 hover:text-white">
+                  <i class="ri-thumb-up-line"></i>
+                </button>
+
+                <button id="adopt-15" onclick="adoptFunc(15)" class="btn text-emerald-700 text-xl font-bold hover:bg-emerald-700 hover:text-white">Adopt</button>
+
+                <button onclick="showdetails(15)" class="btn text-emerald-700 text-xl font-bold hover:bg-emerald-700 hover:text-white">Details</button>
+
+              </div>
+            </div>
+          </div>
+        </div><div class="card bg-base-100 border">
+          <figure class="p-4">
+            <img src="https://i.ibb.co.com/zZHPJNh/pet-16.jpg" alt="Pet Image" class="rounded-xl w-[340px] object-cover">
+          </figure>
+          <div class="items-center text-left p-4">
+            <h2 class="card-title text-2xl font-bold">Snowball</h2>
+            <div class="space-y-2 font-semibold">
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-gallery-view-2"></i></p>
+                <p>Breed: English Angora</p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-store-line"></i></p>
+                <p>Birth: <span>2023-08-05</span></p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-creative-commons-by-line"></i></p>
+                <p>Gender: <span>Female</span></p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-money-dollar-box-line"></i></p>
+                <p>Price: <span>300</span>$</p>
+              </div>
+              <div class="card-actions grid grid-cols-3 justify-between">
+
+                <button onclick="addTodo(16)" class="btns-like w-12 btn text-gray-600 text-xl font-bold hover:bg-emerald-700 hover:text-white">
+                  <i class="ri-thumb-up-line"></i>
+                </button>
+
+                <button id="adopt-16" onclick="adoptFunc(16)" class="btn text-emerald-700 text-xl font-bold hover:bg-emerald-700 hover:text-white">Adopt</button>
+
+                <button onclick="showdetails(16)" class="btn text-emerald-700 text-xl font-bold hover:bg-emerald-700 hover:text-white">Details</button>
+
+              </div>
+            </div>
+          </div>
+        </div><div class="card bg-base-100 border">
+          <figure class="p-4">
+            <img src="https://i.ibb.co.com/85w4kSt/pet-17.jpg" alt="Pet Image" class="rounded-xl w-[340px] object-cover">
+          </figure>
+          <div class="items-center text-left p-4">
+            <h2 class="card-title text-2xl font-bold">Thor</h2>
+            <div class="space-y-2 font-semibold">
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-gallery-view-2"></i></p>
+                <p>Breed: Maine Coon</p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-store-line"></i></p>
+                <p>Birth: <span>2022-12-01</span></p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-creative-commons-by-line"></i></p>
+                <p>Gender: <span>Male</span></p>
+              </div>
+              <div class="flex space-x-2 text-gray-500">
+                <p><i class="ri-money-dollar-box-line"></i></p>
+                <p>Price: <span>1200</span>$</p>
+              </div>
+              <div class="card-actions grid grid-cols-3 justify-between">
+
+                <button onclick="addTodo(17)" class="btns-like w-12 btn text-gray-600 text-xl font-bold hover:bg-emerald-700 hover:text-white">
+                  <i class="ri-thumb-up-line"></i>
+                </button>
+
+                <button id="adopt-17" onclick="adoptFunc(17)" class="btn text-emerald-700 text-xl font-bold hover:bg-emerald-700 hover:text-white">Adopt</button>
+
+                <button onclick="showdetails(17)" class="btn text-emerald-700 text-xl font-bold hover:bg-emerald-700 hover:text-white">Details</button>
+
+              </div>
+            </div>
+          </div>
+        </div></div>
+            <!-- ===============main card container================== -->
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="w-12/12 mx-auto">
+      <div class="footer bg-gray-900 text-white p-10 mt-24 bottom-0">
+        <nav>
+          <h6 class="footer-title flex space-x-4">
+            <img src="./images/logo.webp" alt=""><span class="text-3xl text-white z-12">Peddy</span>
+          </h6>
+          <a class="link link-hover">Location: av. Washington 165, NY CA</a>
+          <a class="link link-hover">54003 </a>
+          <a class="link link-hover">Phone: +31 85 964 47 25 </a>
+          <a class="link link-hover">Email: info@yourdomain.com </a>
+          <div class="grid grid-flow-col gap-4">
+            <a>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
+                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
+              </svg>
+            </a>
+            <a>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
+                <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
+              </svg>
+            </a>
+            <a>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
+                <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
+              </svg>
+            </a>
+          </div>
+        </nav>
+        <nav>
+          <h6 class="footer-title text-2xl">Useful Links</h6>
+          <a class="link link-hover">About us</a>
+          <a class="link link-hover">Animals </a>
+          <a class="link link-hover">Foundation </a>
+          <a class="link link-hover">Contact</a>
+        </nav>
+        <nav>
+          <h6 class="footer-title">Drop a Message</h6>
+          <div class="space-y-4">
+            <div>
+              <input type="text" placeholder="username@site.com" class="input input-bordered bg-gray-600">
+            </div>
+            <div>
+              <button class="btn bg-emerald-700 text-white font-bold hover:text-emerald-700 hover:bg-white">
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="./js/script.js"></script>
+  
+
+</body>
+</html>
