@@ -20,14 +20,31 @@ const loadCards = () => {
 
 const loadCategoriesCard = (id) => {
     
-
-    
         fetch(`https://openapi.programming-hero.com/api/peddy/category/${id}`)
         .then(res => res.json())
         .then(data => displayCards(data.data))
         .catch(error => console.log(error))
-
     
+}
+
+const loadImages = (picture) => {
+
+    console.log(picture)
+    
+    const likepas = document.getElementById('like-container')
+    const likeadd = document.createElement('div')
+    likeadd.classList ="my-6"
+    likeadd.innerHTML=`
+
+            <div class="">
+                <img class="w-[200px] p-2"
+                src= ${picture}
+                alt="Shoes">
+            </div>   
+          
+    
+    `
+   likepas.append(likeadd)
 }
 
 const displayCards = (card) => {
@@ -75,7 +92,7 @@ const displayCards = (card) => {
                 </div>
 
                <div class="grid grid-cols-2 items-center mt-3">
-                    <p class="btn text-[18px] font-bold"> <i class="fa-regular fa-thumbs-up "></i></p>
+                    <p onclick="loadImages('${cards.image}')" class="btn text-[18px] font-bold"> <i class="fa-regular fa-thumbs-up "></i></p>
                     <button class="btn text-[#0E7A81] text-[18px] font-bold">Adopt</button>
                     <button class="btn text-[#0E7A81] text-[18px] font-bold col-span-2 mt-2">Details</button>
                 </div>
