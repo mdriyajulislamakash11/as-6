@@ -1,15 +1,15 @@
 
 // Show spinner
 const showSpinner = () => {
-    document.getElementById('spinner').classList.remove('hidden');
+   const spinner = document.getElementById('spinner').style.display = 'block';
+
 };
 
 // Hide spinner
 const hideSpinner = () => {
-    document.getElementById('spinner').classList.add('hidden');
+    document.getElementById('spinner').style.display = 'none';
+    
 };
-
-
 
 // Load categories button
 const loadCategories = () => {
@@ -37,13 +37,14 @@ const loadCards = () => {
             setTimeout(() => { 
                 displayCards(data.pets);
                 hideSpinner(); 
-            }, 3000);
+            }, 2000);
         })
         .catch(error => {
             console.log(error);
             hideSpinner(); 
         });
 };
+
 
 // Load categories card
 const loadCategoriesCard = (id) => {
@@ -55,7 +56,7 @@ const loadCategoriesCard = (id) => {
             setTimeout(() => { 
                 displayCards(data.data);
                 hideSpinner(); 
-            }, 2000);
+            },2000);
         })
         .catch(error => {
             console.log(error);
@@ -113,11 +114,6 @@ const showAdopt = (adopt) => {
         }
     }, 1000);
 };
-
-
-// const displaModalAdopt = (modalAdopt) => {
-//     console.log(modalAdopt);
-// };
 
 
 
@@ -250,17 +246,16 @@ const displayCategories = (categorys) => {
 
 };
 
-
-
-
 loadCategories();
 loadCards();
+// setTimeout(() => {
+//     loadCategories();
+// }, 2000);
+
+// setTimeout(() => {
+//     loadCards();
+// }, 2000);
 
 
 
 
-
-{/* <div> 
-<h2 class="text-[20px] font-bold inter mb-2"> ${cards.pet_name}</h2>
-   
-</div> */}
