@@ -1,31 +1,68 @@
 
-// load categories button
-const loadCategories = () => {
+// Show spinner
+const showSpinner = () => {
+    document.getElementById('spinner').classList.remove('hidden');
+};
 
+// Hide spinner
+const hideSpinner = () => {
+    document.getElementById('spinner').classList.add('hidden');
+};
+
+
+
+// Load categories button
+const loadCategories = () => {
+    showSpinner(); 
 
     fetch(`https://openapi.programming-hero.com/api/peddy/categories`)
         .then(response => response.json())
-        .then(data => displayCategories(data.categories))
-        .catch(error => console.log(error))
+        .then(data => {
+            displayCategories(data.categories);
+            hideSpinner(); 
+        })
+        .catch(error => {
+            console.log(error);
+            hideSpinner(); 
+        });
 };
 
-// load cards 
+// Load cards
 const loadCards = () => {
-    // fethe
+    showSpinner(); 
+
     fetch(`https://openapi.programming-hero.com/api/peddy/pets`)
         .then(response => response.json())
-        .then(data => displayCards(data.pets))
-        .catch(error => console.log(error))
+        .then(data => {
+            setTimeout(() => { 
+                displayCards(data.pets);
+                hideSpinner(); 
+            }, 3000);
+        })
+        .catch(error => {
+            console.log(error);
+            hideSpinner(); 
+        });
 };
 
+// Load categories card
 const loadCategoriesCard = (id) => {
+    showSpinner(); 
 
     fetch(`https://openapi.programming-hero.com/api/peddy/category/${id}`)
         .then(res => res.json())
-        .then(data => displayCards(data.data))
-        .catch(error => console.log(error))
+        .then(data => {
+            setTimeout(() => { 
+                displayCards(data.data);
+                hideSpinner(); 
+            }, 2000);
+        })
+        .catch(error => {
+            console.log(error);
+            hideSpinner(); 
+        });
+};
 
-}
 
 const loadImages = (picture) => {
 
