@@ -18,13 +18,30 @@ const loadCards = () => {
         
 };
 
+const removeActiveClassBtn = () => {
+    const buttons = document.getElementsByClassName("category-switch-btn");
+    console.log(buttons)
+
+    for(let btn of buttons){
+        btn.classList.remove("switch")
+    }
+}
+
 
 // Load categories card
-const loadCategoriesCard = (id) => {
-
-    fetch(`https://openapi.programming-hero.com/api/peddy/category/${id}`)
+const loadCategoriesCard = (switchBtn) => {
+console.log(switchBtn)
+    fetch(`https://openapi.programming-hero.com/api/peddy/category/${switchBtn}`)
         .then(res => res.json())
-        .then(data => displayCards(data.data))
+        .then(data => {
+
+            removeActiveClassBtn()
+
+
+            const newActiveBtn = document.getElementById(`btn-${switchBtn}`)
+            newActiveBtn.classList.add("switch")
+            displayCards(data.data)
+        })
         .catch(error => console.log(error))
          
 };
@@ -134,8 +151,6 @@ const displayCards = (card) => {
     document.getElementById('sipnner').classList.remove('hidden');
     cardContainer.innerHTML = "";
 
-    console.log(document.getElementById('sipnner'))
-
     setTimeout( () => {
 
         document.getElementById('grandFather').classList.remove('hidden');
@@ -212,10 +227,10 @@ const displayCategories = (categorys) => {
         // console.log(item);
         // create button ctaegories
         const div = document.createElement('div');
-        div.classList = 'btn w-2/12  h-[80px]'
+        div.classList = 'w-[300px]   h-[104px]'
         div.innerHTML = `
-        <div onclick="loadCategoriesCard('${item.category}')" class="flex items-center text-2xl font-bold inter gap-5 my-6">
-             <img src="${item.category_icon}" icon" class="w-10">
+        <div id="btn-${item.category}" onclick="loadCategoriesCard('${item.category}')" class="flex justify-center items-center text-2xl font-bold border p-6 inter gap-5 my-6 category-switch-btn ">
+             <img src="${item.category_icon}" icon" class="">
             <button class="hidden md:block">${item.category}</button>
         </div>
         
