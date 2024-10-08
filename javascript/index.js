@@ -5,7 +5,7 @@ const loadCategories = () => {
         .then(response => response.json())
         .then(data => displayCategories(data.categories))
         .catch(error => console.log(error))
-        
+
 };
 
 // Load cards
@@ -15,14 +15,14 @@ const loadCards = () => {
         .then(response => response.json())
         .then(data => displayCards(data.pets))
         .catch(error => console.log(error))
-        
+
 };
 
 const removeActiveClassBtn = () => {
     const buttons = document.getElementsByClassName("category-switch-btn");
     console.log(buttons)
 
-    for(let btn of buttons){
+    for (let btn of buttons) {
         btn.classList.remove("switch")
     }
 }
@@ -30,7 +30,7 @@ const removeActiveClassBtn = () => {
 
 // Load categories card
 const loadCategoriesCard = (switchBtn) => {
-console.log(switchBtn)
+    console.log(switchBtn)
     fetch(`https://openapi.programming-hero.com/api/peddy/category/${switchBtn}`)
         .then(res => res.json())
         .then(data => {
@@ -43,7 +43,7 @@ console.log(switchBtn)
             displayCards(data.data)
         })
         .catch(error => console.log(error))
-         
+
 };
 
 
@@ -88,7 +88,7 @@ const showAdopt = (adopt) => {
         document.getElementById('count').innerText = countdown;
         countdown--;
 
-        
+
         if (countdown < 0) {
             clearInterval(interval);
             modal.close();
@@ -112,7 +112,7 @@ const displaModalCard = (modal) => {
     console.log(modal);
 
     const detailContainer = document.getElementById('modal-content');
-    detailContainer.classList=""
+    detailContainer.classList = ""
     detailContainer.innerHTML = `
 
     <img src=${modal.image} 
@@ -151,7 +151,7 @@ const displayCards = (card) => {
     document.getElementById('sipnner').classList.remove('hidden');
     cardContainer.innerHTML = "";
 
-    setTimeout( () => {
+    setTimeout(() => {
 
         document.getElementById('grandFather').classList.remove('hidden');
         document.getElementById('sipnner').classList.add("hidden")
@@ -174,8 +174,8 @@ const displayCards = (card) => {
         } else {
             cardContainer.classList.add('grid')
         }
-    
-    
+
+
         card.forEach((cards) => {
             const cardDiv = document.createElement('div');
             cardDiv.classList = "card bg-base-100 shadow-xl m-3 "
@@ -190,11 +190,18 @@ const displayCards = (card) => {
                 </figure>
                 <div class="px-5 pt-5">
                     <div> 
-                    <h2 class="text-[20px] font-bold inter mb-2"> ${cards.pet_name}</h2>
-                        <p>  <i class="fa-solid fa-border-all"></i> Breed: ${cards.breed}</p>
-                        <p> <i class="fa-regular fa-calendar-days"></i> Birth: ${cards.date_of_birth}</p>
-                        <p> <i class="fa-solid fa-mercury"></i> Gender: ${cards.gender}</p>
-                        <p> <i class="fa-solid fa-dollar-sign"></i> Price: ${cards.price}$ </p>
+                    <div> 
+                    <h2 class="text-[20px] font-bold inter mb-2"> ${cards.pet_name ? cards.pet_name : 'Not Available'}</h2>
+                        <p>  <i class="fa-solid fa-border-all"></i> Breed: ${cards.breed ? cards.breed : 'Not Available'}</p>
+                        <p> <i class="fa-regular fa-calendar-days"></i> Birth: ${cards.date_of_birth ? cards.date_of_birth : 'Not Available'}</p>
+                        <p> <i class="fa-solid fa-mercury"></i> Gender: ${cards.gender  ? cards.gender : 'Not Available'}</p>
+                        <p> 
+                            <i class="fa-solid fa-dollar-sign"></i> 
+                            Price: ${cards.price ? `${cards.price}$` : 'Not Available'}
+                        </p>
+                        
+                       
+                    </div>
                         
                     </div>
     
@@ -216,9 +223,9 @@ const displayCards = (card) => {
             cardContainer.append(cardDiv)
         });
 
-    },2000)
+    }, 2000)
 
-    
+
 
 
 };
@@ -243,7 +250,7 @@ const displayCategories = (categorys) => {
         displayCategoriesButton.append(div);
     }, 2000);
 
-  
+
 
 };
 
