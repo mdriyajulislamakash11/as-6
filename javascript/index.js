@@ -195,14 +195,18 @@ const displayCards = (card) => {
                         <p> <i class="fa-regular fa-calendar-days"></i> Birth: ${cards.date_of_birth}</p>
                         <p> <i class="fa-solid fa-mercury"></i> Gender: ${cards.gender}</p>
                         <p> <i class="fa-solid fa-dollar-sign"></i> Price: ${cards.price}$ </p>
+                        
                     </div>
     
                    <div class="mt-3 flex justify-between items-center">
-                        <p onclick="loadImages('${cards.image}')" class="btn text-[18px] font-bold w-[80px]"> <i class="fa-regular fa-thumbs-up "></i></p>
-                        <div class="">
-                        <button onclick="showAdopt('${cards.petId}')" class="btn text-[#0E7A81] text-[18px] font-bold">Adopt</button>
-                        <button onclick="showModal('${cards.petId}')" class="btn text-[#0E7A81] text-[18px] font-bold col-span-2 mt-2">Details</button>
-                        </div>
+                   
+                            <p onclick="loadImages('${cards.image}')" class="btn text-[18px] font-bold w-[80px]"> <i class="fa-regular fa-thumbs-up "></i></p>
+
+                            <button onclick="showAdopt('${cards.petId}')" class="  text-[#0E7A81] btn btn-outline btn-success text-[18px] font-bold">Adopt</button>
+
+                            <button onclick="showModal('${cards.petId}')" class= "text-[#0E7A81]  text-[18px] btn btn-outline btn-success font-bold col-span-2 mt-2">Details</button>
+
+                        
                     </div>
     
                     
@@ -227,11 +231,11 @@ const displayCategories = (categorys) => {
         // console.log(item);
         // create button ctaegories
         const div = document.createElement('div');
-        div.classList = 'w-[300px]   h-[104px]'
+        div.classList = 'lg:w-[300px] w-full  lg:h-[104px]'
         div.innerHTML = `
         <div id="btn-${item.category}" onclick="loadCategoriesCard('${item.category}')" class="flex justify-center items-center text-2xl font-bold border p-6 inter gap-5 my-6 category-switch-btn ">
              <img src="${item.category_icon}" icon" class="">
-            <button class="hidden md:block">${item.category}</button>
+            <button class="">${item.category}</button>
         </div>
         
         `;
