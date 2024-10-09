@@ -44,7 +44,7 @@ const loadSortBtn = () => {
 
 const displaySortBtn = (pet) => {
     
-    const sortedPets = pet.sort((a, b) => a.price - b.price);
+    const sortedPets = pet.sort((a, b) => b.price - a.price);
     
     console.log(sortedPets);
     displayCards(sortedPets);
