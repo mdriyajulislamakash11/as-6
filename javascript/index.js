@@ -40,6 +40,7 @@ const loadSortBtn = () => {
     fetch(`https://openapi.programming-hero.com/api/peddy/pets`)
     .then(res => res.json())
     .then(data => displaySortBtn(data.pets))
+    .catch(error => console.log(error))
 }
 
 const displaySortBtn = (pet) => {
@@ -117,6 +118,9 @@ const showAdopt = (adopt) => {
             modal.close();
         }
     }, 1000);
+
+    // document.getElementById('desiableAdopt').disabled = true;
+    document.getElementById(`desiableAdopt-${adopt}`).disabled = true;
 };
 
 
@@ -127,6 +131,7 @@ const showModal = (detail) => {
     fetch(`https://openapi.programming-hero.com/api/peddy/pet/${detail}`)
         .then(res => res.json())
         .then(data => displaModalCard(data.petData))
+        .catch(error => console.log(error))
 
 };
 
@@ -228,13 +233,13 @@ const displayCards = (card) => {
                         
                     </div>
     
-                   <div class="mt-3 flex justify-between items-center">
+                   <div class="my-3 flex justify-between items-center">
                    
-                            <p onclick="loadImages('${cards.image}')" class="btn text-[18px] font-bold w-[80px]"> <i class="fa-regular fa-thumbs-up "></i></p>
+                            <p onclick="loadImages('${cards.image}')" class="btn btn-outline btn-success text-[18px] font-bold w-[80px]"> <i class="fa-regular fa-thumbs-up "></i></p>
 
-                            <button onclick="showAdopt('${cards.petId}')" class="  text-[#0E7A81] btn btn-outline btn-success text-[18px] font-bold">Adopt</button>
+                            <button id="desiableBtn-${cards.petId}"  onclick="showAdopt('${cards.petId}')" class="  text-[#0E7A81] btn btn-outline btn-success text-[18px] font-bold">Adopt</button>
 
-                            <button onclick="showModal('${cards.petId}')" class= "text-[#0E7A81]  text-[18px] btn btn-outline btn-success font-bold col-span-2 mt-2">Details</button>
+                            <button onclick="showModal('${cards.petId}')" class= "text-[#0E7A81]  text-[18px] btn btn-outline btn-success font-bold col-span-2 ">Details</button>
 
                         
                     </div>
