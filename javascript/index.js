@@ -27,6 +27,29 @@ const removeActiveClassBtn = () => {
     }
 }
 
+// load Sort Button =====================!
+
+//  const loadSortBtn = async  () => {
+//     const response = await fetch('https://openapi.programming-hero.com/api/peddy/pets');
+//     const data = await response.json();
+//     console.log(data)
+// }
+
+const loadSortBtn = () => {
+    console.log('hello sort')
+    fetch(`https://openapi.programming-hero.com/api/peddy/pets`)
+    .then(res => res.json())
+    .then(data => displaySortBtn(data.pets))
+}
+
+const displaySortBtn = (pet) => {
+    
+    const sortedPets = pet.sort((a, b) => a.price - b.price);
+    
+    console.log(sortedPets);
+    displayCards(sortedPets);
+
+};
 
 // Load categories card
 const loadCategoriesCard = (switchBtn) => {
