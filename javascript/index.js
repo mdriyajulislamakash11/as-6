@@ -120,7 +120,7 @@ const showAdopt = (adopt) => {
     }, 1000);
 
     // document.getElementById('desiableAdopt').disabled = true;
-    document.getElementById(`desiableAdopt-${adopt}`).disabled = true;
+    document.getElementById(`desableBtn-${adopt}`).disabled = true;
 };
 
 
@@ -237,7 +237,7 @@ const displayCards = (card) => {
                    
                             <p onclick="loadImages('${cards.image}')" class="btn btn-outline btn-success text-[18px] font-bold w-[80px]"> <i class="fa-regular fa-thumbs-up "></i></p>
 
-                            <button id="desiableBtn-${cards.petId}"  onclick="showAdopt('${cards.petId}')" class="  text-[#0E7A81] btn btn-outline btn-success text-[18px] font-bold">Adopt</button>
+                            <button id="desableBtn-${cards.petId}"  onclick="showAdopt('${cards.petId}')" class="  text-[#0E7A81] btn btn-outline btn-success text-[18px] font-bold">Adopt</button>
 
                             <button onclick="showModal('${cards.petId}')" class= "text-[#0E7A81]  text-[18px] btn btn-outline btn-success font-bold col-span-2 ">Details</button>
 
