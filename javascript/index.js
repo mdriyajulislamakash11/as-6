@@ -191,8 +191,8 @@ const displayCards = (card) => {
             
             <div class="main-h-[400px] w-full flex flex-col gap-5 justify-center items-center text-center py-[100px]">
                 <img src="./images/error.webp" >
-                <p class="text-[32px] font-bold">No Information Available</p>
-                <p class="text-gray-400">It is a long established fact that a reader will be distracted by   the readable content of a page when looking at
+                <p class="text-[32px] font-bold inter">No Information Available</p>
+                <p class="text-gray-400 lato">It is a long established fact that a reader will be distracted by   the readable content of a page when looking at
                  <br>   its layout. The point of using Lorem Ipsum is that it has a.
                 </p>
             </div>
@@ -203,7 +203,7 @@ const displayCards = (card) => {
             cardContainer.classList.add('grid')
         }
 
-
+      
         card.forEach((cards) => {
             const cardDiv = document.createElement('div');
             cardDiv.classList = "card bg-base-100 shadow-xl m-3 "
@@ -220,10 +220,10 @@ const displayCards = (card) => {
                     <div> 
                     <div> 
                     <h2 class="text-[20px] font-bold inter mb-2"> ${cards.pet_name ? cards.pet_name : 'Not Available'}</h2>
-                        <p>  <i class="fa-solid fa-border-all"></i> Breed: ${cards.breed ? cards.breed : 'Not Available'}</p>
-                        <p> <i class="fa-regular fa-calendar-days"></i> Birth: ${cards.date_of_birth ? cards.date_of_birth : 'Not Available'}</p>
-                        <p> <i class="fa-solid fa-mercury"></i> Gender: ${cards.gender  ? cards.gender : 'Not Available'}</p>
-                        <p> 
+                        <p class="lato">  <i class="fa-solid fa-border-all"></i> Breed: ${cards.breed ? cards.breed : 'Not Available'}</p>
+                        <p class="lato"> <i class="fa-regular fa-calendar-days"></i> Birth: ${cards.date_of_birth ? cards.date_of_birth : 'Not Available'}</p>
+                        <p class="lato"> <i class="fa-solid fa-mercury"></i> Gender: ${cards.gender  ? cards.gender : 'Not Available'}</p>
+                        <p class="lato"> 
                             <i class="fa-solid fa-dollar-sign"></i> 
                             Price: ${cards.price ? `${cards.price}$` : 'Not Available'}
                         </p>
@@ -235,11 +235,11 @@ const displayCards = (card) => {
     
                    <div class="my-3 flex justify-between items-center">
                    
-                            <p onclick="loadImages('${cards.image}')" class="btn btn-outline btn-success text-[18px] font-bold w-[80px]"> <i class="fa-regular fa-thumbs-up "></i></p>
+                            <p onclick="loadImages('${cards.image}')" class="btn btn-outline btn-success text-lg  lato font-bold w-[80px]"> <i class="fa-regular fa-thumbs-up "></i></p>
 
-                            <button id="desableBtn-${cards.petId}"  onclick="showAdopt('${cards.petId}')" class="  text-[#0E7A81] btn btn-outline btn-success text-[18px] font-bold">Adopt</button>
+                            <button id="desableBtn-${cards.petId}"  onclick="showAdopt('${cards.petId}')" class="  text-[#0E7A81] btn btn-outline btn-success text-lg lato font-bold">Adopt</button>
 
-                            <button onclick="showModal('${cards.petId}')" class= "text-[#0E7A81]  text-[18px] btn btn-outline btn-success font-bold col-span-2 ">Details</button>
+                            <button onclick="showModal('${cards.petId}')" class= "text-[#0E7A81]  text-lg btn btn-outline btn-success font-bold lato col-span-2 ">Details</button>
 
                         
                     </div>
